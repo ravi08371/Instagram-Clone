@@ -1,0 +1,351 @@
+.img1 {
+  background-image: url(./images/img1.png);
+  height: 56px;
+  width: 56px;
+
+  background-position: center;
+  background-size: contain;
+  border-radius: 50%;
+}
+.img2 {
+  background-image: url(./images/img2.jpg);
+  height: 56px;
+  width: 56px;
+  border-radius: 50%;
+  background-position: center;
+  background-size: contain;
+}
+.img3 {
+  background-image: url(./images/img3.jpg);
+  height: 56px;
+  width: 56px;
+  border-radius: 50%;
+  background-position: center;
+  background-size: contain;
+}
+.img4 {
+  background-image: url(./images/img4.jpg);
+  height: 56px;
+  width: 56px;
+  border-radius: 50%;
+  background-position: center;
+  background-size: contain;
+}
+.img5 {
+  background-image: url(./images/img5.jpg);
+  height: 56px;
+  width: 56px;
+  border-radius: 50%;
+  background-position: center;
+  background-size: contain;
+}
+.img6 {
+  background-image: url(./images/img6.jpg);
+  height: 56px;
+  width: 56px;
+  border-radius: 50%;
+  background-position: center;
+  background-size: contain;
+}
+
+.statusSection {
+  display: flex;
+  padding: 14px;
+  border: 0.5px solid lightgray;
+  border-radius: 8px;
+  margin-top: 20px;
+  box-shadow: 2px 0px 10px 2px lightgray;
+  width: 452px;
+}
+.statusSection div {
+  padding: 4px;
+  margin: 6px;
+  cursor: pointer;
+}
+
+body {
+  background-color: #fafafa;
+}
+
+.mainContainer {
+  display: flex;
+  /* justify-content: space-around; */
+}
+.leftSection {
+  position: absolute;
+  left: 2px;
+  border-right: 0.5px solid lightgrey;
+  border-width: 0.001px;
+  height: 100%;
+  width: 17%;
+  box-shadow: 2px 4px 14px 2px lightgrey;
+  background-color: #ffffff;
+}
+
+.leftSection p {
+  position: relative;
+  /* right: 4px; */
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  /* padding-left: 5px; */
+  cursor: pointer;
+}
+.leftSection i {
+  position: absolute;
+  left: 20px;
+  /* padding-right: 5px; */
+  font-size: 20px;
+}
+
+.leftSection p:hover {
+  background-color: #fafafa;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+/* ------------------------Post-------------------------- */
+
+.postHeadImg {
+  background-image: url(./images/img4.jpg);
+  height: 30px;
+  width: 30px;
+  background-position: center;
+  background-size: contain;
+  border-radius: 50%;
+}
+.postHead {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  height: 40px;
+  margin: 0;
+  justify-content: left;
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+}
+.postHead div {
+  margin-left: 10px;
+  position: relative;
+  top: 6px;
+}
+.postHead p {
+  position: relative;
+  left: 15px;
+  top: -5px;
+}
+.postDiv {
+  padding: 0px;
+  border: 0.5px solid lightgray;
+  border-radius: 18px;
+  margin-top: 20px;
+  box-shadow: 2px 0px 10px 2px lightgray;
+  width: 480px;
+}
+.postImg {
+  background-image: url(./images/post1.jpg);
+  height: 500px;
+  width: 100%;
+  background-position: center;
+  background-size: contain;
+}
+.postIcons {
+  display: flex;
+  justify-content: space-between;
+}
+.icons {
+  padding: 4px;
+  margin: 4px;
+  font-size: 22px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.icons i:hover {
+  color: lightgrey;
+}
+.icons i {
+  padding-right: 10px;
+}
+.postText {
+  text-align: left;
+  padding-left: 8px;
+}
+.postFooter {
+  border-radius: 0 0 4px 4px;
+}
+
+.postHeadImgOne {
+  background-image: url(./images/img5.jpg);
+  height: 30px;
+  width: 30px;
+  background-position: center;
+  background-size: contain;
+  border-radius: 50%;
+}
+.postImgOne {
+  background-image: url(./images/post2.jpg);
+  height: 500px;
+  width: 100%;
+  background-position: center;
+  background-size: contain;
+}
+.postHeadImgTwo {
+  background-image: url(./images/img1.png);
+  height: 30px;
+  width: 30px;
+  background-position: center;
+  background-size: contain;
+  border-radius: 50%;
+}
+.postImgTwo {
+  background-image: url(./images/post3.jpg);
+  height: 500px;
+  width: 100%;
+  background-position: center;
+  background-size: contain;
+}
+.btnMain {
+  all: unset;
+  width: 50%;
+  border: 0.5px solid lightgrey;
+  padding: 10px;
+  border-radius: 12px;
+  margin-top: 90px;
+}
+.btnMain:hover {
+  background-color: #fafafa;
+}
+.mid {
+  margin-left: 300px;
+}
+
+.rightSection {
+  display: flex;
+}
+.profImg {
+  background-image: url(./images/img1.png);
+  height: 60px;
+  width: 60px;
+  background-position: center;
+  background-size: contain;
+  border-radius: 50%;
+}
+.prof {
+  display: flex;
+  /* border: 0.5px solid lightgrey; */
+  margin-top: 10px;
+}
+.lft {
+  display: flex;
+  justify-content: space-evenly;
+}
+.lft div {
+  margin-left: 8px;
+  text-align: center;
+  padding-left: 5px;
+}
+.profText {
+  position: relative;
+  top: 19px;
+  cursor: pointer;
+}
+.rght {
+  position: relative;
+  top: 19px;
+  margin-left: 100px;
+}
+.rightProf {
+  margin: 80px;
+  margin-top: 50px;
+}
+.profPara {
+  color: grey;
+  position: relative;
+  left: -30px;
+  top: 8px;
+}
+.profImgOne {
+  background-image: url(./images/img3.jpg);
+  height: 34px;
+  width: 34px;
+  background-position: center;
+  background-size: contain;
+  border-radius: 50%;
+}
+.profTextOne {
+  position: relative;
+  top: 6px;
+  cursor: pointer;
+}
+.rghtOne {
+  position: relative;
+  margin-left: 80px;
+  top: 8px;
+}
+.profImgTwo {
+  background-image: url(./images/img5.jpg);
+  height: 34px;
+  width: 34px;
+  background-position: center;
+  background-size: contain;
+  border-radius: 50%;
+}
+.profTextTwo {
+  position: relative;
+  top: 6px;
+  cursor: pointer;
+}
+.rghtTwo {
+  position: relative;
+  margin-left: 112px;
+  top: 8px;
+}
+.profImgThree {
+  background-image: url(./images/img6.jpg);
+  height: 34px;
+  width: 34px;
+  background-position: center;
+  background-size: contain;
+  border-radius: 50%;
+}
+.profImgFour {
+  background-image: url(./images/img7.jpg);
+  height: 34px;
+  width: 34px;
+  background-position: center;
+  background-size: contain;
+  border-radius: 50%;
+}
+.profImgFive {
+  background-image: url(./images/img2.jpg);
+  height: 34px;
+  width: 34px;
+  background-position: center;
+  background-size: contain;
+  border-radius: 50%;
+}
+
+.linksSec ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  color: lightgrey;
+  padding: 2px;
+}
+
+.linksSec ul li {
+  padding-left: 2px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.linksSec ul li:hover {
+  color: grey;
+}
+.linksSec p {
+  color: lightgrey;
+  font-size: 15px;
+  margin-left: -40px;
+  margin-right: 18px;
+}
