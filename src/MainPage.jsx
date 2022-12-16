@@ -1,36 +1,111 @@
 import React from "react";
+import { useEffect,useState } from "react";
 import firebase from "./fire";
 import "./Mainpage.css";
 // import {img1,img2,img3,img4,img5} from "./images"
 
 
 function MainPage(){
+    const[instaData,setinstaData] = useState([]);
+    const[theme,setTheme]= useState(
+        localStorage.getItem('theme') || 'light'
+    );
+
+    useEffect(()=>{
+        // const API_KEY = '563492ad6f91700001000001d3aa3cccb66a4471b99591ad14f53b14';
+        const searchitem = ['people','nature','forest','city','india'];
+        const index = Math.floor(Math.random() * searchitem.length);
+        const searchitemMain = searchitem[index];
+
+       fetch(`https://api.pexels.com/v1/search?query=${searchitemMain}&per_page=6`,{
+        headers: {
+          Authorization: "563492ad6f91700001000001d3aa3cccb66a4471b99591ad14f53b14"
+        }
+      })
+       .then((response)=> response.json())
+       .then((data)=> setinstaData(data.photos))
+       .catch((err)=> console.log(err));
+
+    },[]);
+    // console.log(instaData);
+    const changeTheme=()=>{
+        const newTheme = theme === 'light' ? 'dark' : 'light';
+        setTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+    }
+   
+    const className = `theme-${theme}`;
+
+
+
+
     return(
- <div>
+ <div className={className}>
     
     <div className="mainContainer">
         <div className="leftSection">
             <h2>Instagram</h2>
-            <p><i class="fa-solid fa-house"></i>  Home</p>
-            <p><i class="fa-solid fa-magnifying-glass"></i>  Search</p>
-            <p><i class="fa-regular fa-compass"></i>  Explore</p>
-            <p><i class="fa-sharp fa-solid fa-comment"></i>  Messages</p>
-            <p><i class="fa-regular fa-heart"></i>  Notifications</p>
-            <p><i class="fa-solid fa-plus"></i>  Create</p>
+            <p><i className="fa-solid fa-house"></i>  Home</p>
+            <p><i className="fa-solid fa-magnifying-glass"></i>  Search</p>
+            <p><i className="fa-regular fa-compass"></i>  Explore</p>
+            <p><i className="fa-sharp fa-solid fa-comment"></i>  Messages</p>
+            <p><i className="fa-regular fa-heart"></i>  Notifications</p>
+            <p><i className="fa-solid fa-plus"></i>  Create</p>
             <p>Profile</p>
+            <button className="themeChanger" onClick={changeTheme}>{theme == 'light'?<i class="fa-solid fa-sun"></i>:<i class="fa-solid fa-moon"></i>}</button>
             <button className="btnMain" onClick={() => firebase.auth().signOut()} >Log out</button>
         </div>
+       
         
         <div className="rightSection">
             <div className="mid">
                 <div className="statusSection">
-                    <div className="img1"></div>
-                    <div className="img2"></div>
-                    <div className="img3"></div>
-                    <div className="img4"></div>
-                    <div className="img5"></div>
-                    <div className="img6"></div>
+                 
+                    {instaData == undefined ? console.log("there is error"):(
+                        instaData.map((datas)=>{
+                            return(
+                                <div>{<img src={datas.src.tiny} alt="profimg" />}</div>
+                            )
+                        })
+                    )}
+                    
                 </div>
+                {/* //////////////////////////////////////////////// */}
+                {instaData == undefined ? console.log("there is error") : (
+                    
+                    instaData.map((datas)=>{
+                        return (
+                          
+                        <div className="postDiv">
+                        <div className="postHead">
+                            <div className="postHeadmg">
+                               
+                                <img src={datas.src.tiny} alt="profimg" />
+                            </div>
+                            <p>{datas.photographer}</p>
+                        </div>
+                        <div className="postIg">
+                            <img src={datas.src.portrait} alt="image" />
+                        </div>
+                        <div className="postFooter">
+                            <div className="postIcons">
+                                <div className="icons">
+                                    <i className="fa-regular fa-heart"></i>
+                                    <i className="fa-regular fa-comment"></i>
+                                    <i className="fa-solid fa-share"></i></div>
+                            <div className="icons"><i className="fa-regular fa-bookmark"></i></div>
+                            </div>
+                            <div className="postText">
+                                <p><span>{datas.photographer} </span>{datas.alt}</p>
+                            </div>
+                        </div>
+                    </div>
+              
+                        )
+                    })
+                )
+                    
+                }
                 <div className="contentSection">
                     <div className="postDiv">
                         <div className="postHead">
@@ -41,10 +116,10 @@ function MainPage(){
                         <div className="postFooter">
                             <div className="postIcons">
                                 <div className="icons">
-                                    <i class="fa-regular fa-heart"></i>
-                                    <i class="fa-regular fa-comment"></i>
-                                    <i class="fa-solid fa-share"></i></div>
-                            <div className="icons"><i class="fa-regular fa-bookmark"></i></div>
+                                    <i className="fa-regular fa-heart"></i>
+                                    <i className="fa-regular fa-comment"></i>
+                                    <i className="fa-solid fa-share"></i></div>
+                            <div className="icons"><i className="fa-regular fa-bookmark"></i></div>
                             </div>
                             <div className="postText">
                                 <p><span>Andrewstark </span> Clicked this amazing bird ❤️</p>
@@ -62,10 +137,10 @@ function MainPage(){
                         <div className="postFooter">
                             <div className="postIcons">
                                 <div className="icons">
-                                    <i class="fa-regular fa-heart"></i>
-                                    <i class="fa-regular fa-comment"></i>
-                                    <i class="fa-solid fa-share"></i></div>
-                            <div className="icons"><i class="fa-regular fa-bookmark"></i></div>
+                                    <i className="fa-regular fa-heart"></i>
+                                    <i className="fa-regular fa-comment"></i>
+                                    <i className="fa-solid fa-share"></i></div>
+                            <div className="icons"><i className="fa-regular fa-bookmark"></i></div>
                             </div>
                             <div className="postText">
                                 <p><span>Scarletwitch </span> Happiness is a butterfly,<br/> which when pursued, is always just beyond your grasp,<br/>
@@ -83,10 +158,10 @@ function MainPage(){
                         <div className="postFooter">
                             <div className="postIcons">
                                 <div className="icons">
-                                    <i class="fa-regular fa-heart"></i>
-                                    <i class="fa-regular fa-comment"></i>
-                                    <i class="fa-solid fa-share"></i></div>
-                            <div className="icons"><i class="fa-regular fa-bookmark"></i></div>
+                                    <i className="fa-regular fa-heart"></i>
+                                    <i className="fa-regular fa-comment"></i>
+                                    <i className="fa-solid fa-share"></i></div>
+                            <div className="icons"><i className="fa-regular fa-bookmark"></i></div>
                             </div>
                             <div className="postText">
                                 <p><span>Ravisingh </span> Spending another day of that preety life❤️</p>
@@ -107,46 +182,27 @@ function MainPage(){
 
                 <p className="profPara">Suggestions for you</p>
                 {/* ----------------------------------------------------------- */}
-                <div className="prof">
-                    <div className="lft">
-                         <div className="profImgOne"></div>
-                         <div className="profTextOne"> alaxander_parker</div>
-                    </div>
-                    <div className="rghtOne"><span> Follow</span></div>
-                </div>
-                {/* --------------------------------------------------- */}
-                <div className="prof">
-                    <div className="lft">
-                         <div className="profImgTwo"></div>
-                         <div className="profTextTwo"> Scarlet.witch</div>
-                    </div>
-                    <div className="rghtTwo"><span> Follow</span></div>
-                </div>
-                {/* -------------------------------------------------------------- */}
-                <div className="prof">
-                    <div className="lft">
-                         <div className="profImgThree"></div>
-                         <div className="profTextTwo"> Damon.salva</div>
-                    </div>
-                    <div className="rghtTwo"><span> Follow</span></div>
-                </div>
-                {/* ------------------------------------------------------------------------ */}
-                <div className="prof">
-                    <div className="lft">
-                         <div className="profImgFour"></div>
-                         <div className="profTextTwo"> Scarlet...stark</div>
-                    </div>
-                    <div className="rghtTwo"><span> Follow</span></div>
-                </div>
-                    {/* -----------------------------------------------------------------------------+ */}
-                <div className="prof">
-                    <div className="lft">
-                         <div className="profImgFive"></div>
-                         <div className="profTextTwo"> jasonmomoa</div>
-                    </div>
-                    <div className="rghtTwo"><span> Follow</span></div>
-                </div>
-                {/* ------------------------------------------------------------------------------------ */}
+
+                {instaData == undefined ? console.log("it is error") : (
+                        instaData.map((datas)=>{
+                            return(
+                                <div className="prof">
+                                <div className="lft">
+                                     <div className="profImgAll">
+                                     <img src={datas.src.tiny} alt="profimg" />
+                                     </div>
+                                     <div className="profTextOne">
+                                     <p>{datas.photographer}</p>
+                                     </div>
+                                </div>
+                                <div className="rghtOne"><span> Follow</span></div>
+                            </div>
+                            )
+                        })
+
+                )}
+
+
                 <div className="linksSec">
                     <ul>
                         <li>About.</li>
