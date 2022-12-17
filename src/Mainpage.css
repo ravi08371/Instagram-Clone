@@ -66,9 +66,16 @@
   /* margin-left: 0; */
 }
 .statusSection div {
-  padding: 4px;
-  margin: 6px;
+  /* padding: 4px; */
+  /* margin: 2px; */
   cursor: pointer;
+  border: 3px solid magenta;
+  border-radius: 50%;
+}
+.statusSection div img {
+  margin: 0;
+  padding: 0;
+  margin-bottom: -4px;
 }
 
 body {
@@ -438,4 +445,10 @@ body {
 .themeChanger i {
   text-align: center;
   margin: auto;
+}
+.theme-dark .leftSection p:hover {
+  background-color: #121212;
+}
+.theme-dark .leftSection .btnMain:hover {
+  background-color: #121212;
 }

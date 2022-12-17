@@ -2,7 +2,6 @@ import React from "react";
 import { useEffect,useState } from "react";
 import firebase from "./fire";
 import "./Mainpage.css";
-// import {img1,img2,img3,img4,img5} from "./images"
 
 
 function MainPage(){
